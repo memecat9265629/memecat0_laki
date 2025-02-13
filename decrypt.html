@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decrypt.day App Search and Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        .app-list {
+            margin-top: 20px;
+        }
+        .app-item {
+            margin-bottom: 15px;
+        }
+        .app-item a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Decrypt.day App Search and Download</h1>
+    <input type="text" id="searchInput" placeholder="Enter App Name, App ID, or App Store Link">
+    <button onclick="searchApp()">Search</button>
+    <div class="app-list" id="appList"></div>
+
+    <script>
+        function searchApp() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                const searchUrl = `https://decrypt.day/search/${encodeURIComponent(query)}`;
+                window.open(searchUrl, '_blank');
+            } else {
+                alert('Please enter a valid search term.');
+            }
+        }
+    </script>
+</body>
+</html>
