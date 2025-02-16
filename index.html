@@ -11,8 +11,16 @@
             text-align: center;
             padding: 20px;
         }
+        .navbar {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            font-size: 18px;
+        }
         .search-container {
-            margin-bottom: 20px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
         }
         .search-box {
             width: 80%;
@@ -21,22 +29,47 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .app-container {
+        .search-btn {
+            padding: 10px;
+            margin-left: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #ddd;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+        .tab.active {
+            background: #007bff;
+            color: white;
+        }
+        .app-container {
+            display: none;
+        }
+        .app-container.active {
+            display: block;
         }
         .app {
             display: flex;
             align-items: center;
             background: white;
             padding: 15px;
-            margin: 10px;
+            margin: 10px auto;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 500px;
-            position: relative;
         }
         .app img {
             width: 60px;
@@ -47,10 +80,6 @@
         .app-info {
             flex: 1;
             text-align: left;
-        }
-        .hack-status {
-            color: red;
-            font-weight: bold;
         }
         .download-btn {
             background-color: #007bff;
@@ -63,49 +92,54 @@
         .download-btn:hover {
             background-color: #0056b3;
         }
-        .about-me {
-            margin-top: 20px;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
-            text-align: left;
-        }
     </style>
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.app-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <h1>IPA Downloader</h1>
+    <div class="navbar">IPA Downloader</div>
     <div class="search-container">
         <input type="text" class="search-box" placeholder="Search for an app...">
+        <button class="search-btn">Search</button>
     </div>
-    <div class="app-container">
+    <div class="tab-container">
+        <div class="tab active" data-tab="original" onclick="showTab('original')">Original Apps</div>
+        <div class="tab" data-tab="hackmod" onclick="showTab('hackmod')">Hack Mod Apps</div>
+    </div>
+    <div id="original" class="app-container active">
         <div class="app">
             <img src="app-icon.png" alt="App Icon">
             <div class="app-info">
                 <h3>App Name</h3>
                 <p>Version: 1.0.0</p>
                 <p>File Size: 50MB</p>
-                <p class="hack-status">Hack Mod: Detected</p>
             </div>
             <a href="app-download.ipa" class="download-btn">Download</a>
         </div>
+    </div>
+    <div id="hackmod" class="app-container">
         <div class="app">
             <img src="app-icon2.png" alt="App Icon">
             <div class="app-info">
                 <h3>Another App</h3>
                 <p>Version: 2.3.1</p>
                 <p>File Size: 80MB</p>
-                <p class="hack-status">Hack Mod: Not Detected</p>
+                <p style="color: red; font-weight: bold;">Hack Mod Detected</p>
             </div>
             <a href="another-app.ipa" class="download-btn">Download</a>
         </div>
     </div>
-    <div class="about-me">
-        <h2>About Me</h2>
-        <p>Hi, I'm Koyia_Kyouko (Girl UwU)!</p>
-        <p>Welcome to my IPA downloader, where you can find and download different apps with ease.</p>
-    </div>
 </body>
 </html>
+
