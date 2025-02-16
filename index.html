@@ -3,72 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPA Downloader - Koyia <3</title>
+    <title>IPA Downloader</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
+            background-color: #f4f4f4;
             text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #ff4081;
-        }
-        .app-list {
-            margin-top: 20px;
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .app {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+        .app img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+        .app-info {
+            flex: 1;
+            text-align: left;
         }
         .download-btn {
-            background-color: #ff4081;
+            background-color: #007bff;
             color: white;
-            padding: 8px 15px;
+            padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
         }
-        .footer {
-            margin-top: 20px;
+        .download-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>IPA Downloader - Koyia <3</h1>
-        <p>Download your favorite IPA files with ease.</p>
-        
-        <div class="app-list">
-            <div class="app">
-                <span>App Name 1</span>
-                <span>Version: 1.0</span>
-                <span>Size: 50MB</span>
-                <a href="#" class="download-btn">Download</a>
+    <h1>IPA Downloader</h1>
+    <div class="app-container">
+        <div class="app">
+            <img src="app-icon.png" alt="App Icon">
+            <div class="app-info">
+                <h3>App Name</h3>
+                <p>Version: 1.0.0</p>
+                <p>File Size: 50MB</p>
             </div>
-            <div class="app">
-                <span>App Name 2</span>
-                <span>Version: 2.1</span>
-                <span>Size: 75MB</span>
-                <a href="#" class="download-btn">Download</a>
-            </div>
+            <a href="app-download.ipa" class="download-btn">Download</a>
         </div>
-
-        <div class="footer">
-            <a href="#">GitHub Releases</a> | 
-            <a href="#">Open View</a> | 
-            <a href="#">About Me</a>
+        <div class="app">
+            <img src="app-icon2.png" alt="App Icon">
+            <div class="app-info">
+                <h3>Another App</h3>
+                <p>Version: 2.3.1</p>
+                <p>File Size: 80MB</p>
+            </div>
+            <a href="another-app.ipa" class="download-btn">Download</a>
         </div>
     </div>
 </body>
