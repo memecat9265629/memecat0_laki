@@ -3,104 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>memecat0_laki - IPA Downloader</title>
+    <title>IPA Downloader - Koyia <3</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
         .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #1e1e1e;
-            border-radius: 10px;
-        }
-        input {
             width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff4081;
         }
         .app-list {
-            list-style: none;
-            padding: 0;
+            margin-top: 20px;
         }
-        .app-item {
+        .app {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
-            background: #333;
-            margin: 10px 0;
-            border-radius: 5px;
+            border-bottom: 1px solid #ddd;
         }
         .download-btn {
-            background: #ff4500;
+            background-color: #ff4081;
             color: white;
-            padding: 10px;
-            border: none;
+            padding: 8px 15px;
+            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
+        }
+        .footer {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>memecat0_laki - IPA Downloader</h1>
-        <input type="text" id="search" placeholder="Search for an app..." onkeyup="filterApps()">
-        <ul class="app-list" id="appList">
-            <!-- Apps will be loaded here dynamically -->
-        </ul>
+        <h1>IPA Downloader - Koyia <3</h1>
+        <p>Download your favorite IPA files with ease.</p>
+        
+        <div class="app-list">
+            <div class="app">
+                <span>App Name 1</span>
+                <span>Version: 1.0</span>
+                <span>Size: 50MB</span>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+            <div class="app">
+                <span>App Name 2</span>
+                <span>Version: 2.1</span>
+                <span>Size: 75MB</span>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="#">GitHub Releases</a> | 
+            <a href="#">Open View</a> | 
+            <a href="#">About Me</a>
+        </div>
     </div>
-
-    <script>
-        // Simulated API Response (Replace with actual API call)
-        const apps = [
-            { name: "Spotify++", version: "8.7.92", size: "50MB", link: "https://example.com/spotify.ipa" },
-            { name: "YouTube++", version: "17.34", size: "80MB", link: "https://example.com/youtube.ipa" },
-            { name: "TikTok++", version: "27.1", size: "100MB", link: "https://example.com/tiktok.ipa" }
-        ];
-
-        function loadApps() {
-            const appList = document.getElementById("appList");
-            appList.innerHTML = "";
-            apps.forEach(app => {
-                let li = document.createElement("li");
-                li.classList.add("app-item");
-                li.innerHTML = `
-                    <strong>${app.name}</strong> (v${app.version}, ${app.size}) 
-                    <br>
-                    <button class="download-btn" onclick="downloadIPA('${app.link}')">Download IPA</button>
-                `;
-                appList.appendChild(li);
-            });
-        }
-
-        function filterApps() {
-            let searchValue = document.getElementById("search").value.toLowerCase();
-            const appList = document.getElementById("appList");
-            appList.innerHTML = "";
-            apps
-                .filter(app => app.name.toLowerCase().includes(searchValue))
-                .forEach(app => {
-                    let li = document.createElement("li");
-                    li.classList.add("app-item");
-                    li.innerHTML = `
-                        <strong>${app.name}</strong> (v${app.version}, ${app.size}) 
-                        <br>
-                        <button class="download-btn" onclick="downloadIPA('${app.link}')">Download IPA</button>
-                    `;
-                    appList.appendChild(li);
-                });
-        }
-
-        function downloadIPA(url) {
-            window.location.href = url;
-        }
-
-        // Load apps on page load
-        window.onload = loadApps;
-    </script>
 </body>
 </html>
