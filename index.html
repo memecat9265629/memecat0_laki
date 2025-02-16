@@ -11,6 +11,16 @@
             text-align: center;
             padding: 20px;
         }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-box {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
         .app-container {
             display: flex;
             flex-direction: column;
@@ -26,6 +36,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 500px;
+            position: relative;
         }
         .app img {
             width: 60px;
@@ -36,6 +47,10 @@
         .app-info {
             flex: 1;
             text-align: left;
+        }
+        .hack-status {
+            color: red;
+            font-weight: bold;
         }
         .download-btn {
             background-color: #007bff;
@@ -48,10 +63,23 @@
         .download-btn:hover {
             background-color: #0056b3;
         }
+        .about-me {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <h1>IPA Downloader</h1>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search for an app...">
+    </div>
     <div class="app-container">
         <div class="app">
             <img src="app-icon.png" alt="App Icon">
@@ -59,6 +87,7 @@
                 <h3>App Name</h3>
                 <p>Version: 1.0.0</p>
                 <p>File Size: 50MB</p>
+                <p class="hack-status">Hack Mod: Detected</p>
             </div>
             <a href="app-download.ipa" class="download-btn">Download</a>
         </div>
@@ -68,9 +97,15 @@
                 <h3>Another App</h3>
                 <p>Version: 2.3.1</p>
                 <p>File Size: 80MB</p>
+                <p class="hack-status">Hack Mod: Not Detected</p>
             </div>
             <a href="another-app.ipa" class="download-btn">Download</a>
         </div>
+    </div>
+    <div class="about-me">
+        <h2>About Me</h2>
+        <p>Hi, I'm Koyia_Kyouko (Girl UwU)!</p>
+        <p>Welcome to my IPA downloader, where you can find and download different apps with ease.</p>
     </div>
 </body>
 </html>
