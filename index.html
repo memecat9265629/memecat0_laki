@@ -100,41 +100,49 @@
             opacity: 0.5;
         }
 
-        /* App List Gallery */
+        /* App List (No Gallery) */
         .app-list {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin-top: 20px;
         }
 
-        .app-card {
+        .app-item {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             padding: 15px;
-            width: 250px;
+            width: 80%;
+            max-width: 400px;
             margin: 10px;
-            transition: 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
             cursor: pointer;
+            transition: 0.3s ease-in-out;
         }
 
-        .app-card:hover {
+        .app-item:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .app-card img {
+        .app-item img {
             width: 50px;
             height: 50px;
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-right: 15px;
         }
 
-        .app-card h3 {
+        .app-item div {
+            text-align: left;
+            flex: 1;
+        }
+
+        .app-item h3 {
             font-size: 18px;
         }
 
-        .app-card p {
+        .app-item p {
             font-size: 14px;
             opacity: 0.8;
         }
@@ -174,24 +182,30 @@
 
     <hr>
 
-    <!-- App List Gallery -->
+    <!-- App List (No Gallery, Just a List) -->
     <section id="apps" class="app-list fade-in">
-        <div class="app-card" onclick="window.open('https://example.com', '_blank')">
+        <div class="app-item" onclick="window.open('https://example.com', '_blank')">
             <img src="https://via.placeholder.com/50" alt="App">
-            <h3>My Website</h3>
-            <p>Visit my personal website.</p>
+            <div>
+                <h3>My Website</h3>
+                <p>Visit my personal website.</p>
+            </div>
         </div>
 
-        <div class="app-card" onclick="window.open('https://instagram.com', '_blank')">
+        <div class="app-item" onclick="window.open('https://instagram.com', '_blank')">
             <img src="https://via.placeholder.com/50" alt="App">
-            <h3>Instagram</h3>
-            <p>Follow me on Instagram.</p>
+            <div>
+                <h3>Instagram</h3>
+                <p>Follow me on Instagram.</p>
+            </div>
         </div>
 
-        <div class="app-card" onclick="window.open('https://twitter.com', '_blank')">
+        <div class="app-item" onclick="window.open('https://twitter.com', '_blank')">
             <img src="https://via.placeholder.com/50" alt="App">
-            <h3>Twitter</h3>
-            <p>Follow me on Twitter.</p>
+            <div>
+                <h3>Twitter</h3>
+                <p>Follow me on Twitter.</p>
+            </div>
         </div>
     </section>
 
