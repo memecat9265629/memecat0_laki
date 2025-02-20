@@ -3,21 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arceus X Official Bypass</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Beacons AI Inspired Page</title>
+    <style>
+        /* Gradient Theme */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7eb3, #8c52ff);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffeb3b;
+        }
+
+        /* Burger Menu */
+        .burger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .burger {
+                display: block;
+            }
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-top: 100px;
+            padding: 30px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            transition: transform 0.3s;
+        }
+
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile h1 {
+            margin: 10px 0;
+            font-size: 26px;
+            background: -webkit-linear-gradient(45deg, #ffeb3b, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Horizontal line */
+        hr {
+            border: 3px solid #ffeb3b;
+            border-radius: 5px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* App List */
+        .app-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .app-card:hover {
+            transform: scale(1.05);
+        }
+
+        .app-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+        }
+
+        .app-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .app-card p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-top: 10px;
+            color: white;
+            background: #ffeb3b;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #ff4081;
+        }
+    </style>
 </head>
 <body>
-    <div id="container">
-        <h1>Arceus X Bypass System</h1>
-        <div id="notification"></div>
-        <label for="input-key">Enter Key:</label>
-        <input type="text" id="input-key" placeholder="Enter key to bypass">
-        <button id="bypass-button">Bypass</button>
-        <div id="progress-container">
-            <div id="progress-bar"></div>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Beacons</div>
+        <div class="nav-links">
+            <a href="#profile">Profile</a>
+            <a href="#apps">Apps</a>
+        </div>
+        <div class="burger">☰</div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile">
+        <img src="https://via.placeholder.com/100" alt="Profile Image">
+        <h1>John Doe</h1>
+        <p>Entrepreneur | Developer | Content Creator</p>
+    </section>
+
+    <hr>
+
+    <!-- Apps Section -->
+    <section id="apps" class="app-list">
+        <div class="app-card">
+            <img src="https://via.placeholder.com/80" alt="App Image">
+            <h3>My App 1</h3>
+            <p>Awesome app description.</p>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://via.placeholder.com/80" alt="App Image">
+            <h3>My App 2</h3>
+            <p>Another great app.</p>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://via.placeholder.com/80" alt="App Image">
+            <h3>My App 3</h3>
+            <p>Get started today!</p>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+    </section>
+
+    <script>
+        // Burger Menu Toggle
+        document.querySelector('.burger').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scroll for Menu Links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+
+                // Close burger menu on mobile
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+
 </body>
 </html>
