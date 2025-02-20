@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacons AI Inspired Page</title>
+    <title>Beacons AI - App Gallery</title>
     <style>
-        /* Gradient Theme */
+        /* General Styles */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #ff7eb3, #8c52ff);
             color: white;
-            scroll-behavior: smooth;
-        }
-
-        /* Smooth scrolling */
-        html {
             scroll-behavior: smooth;
         }
 
@@ -77,48 +72,19 @@
             }
         }
 
-        /* Profile Section */
-        .profile {
+        /* Section Headers */
+        .section-title {
             text-align: center;
-            margin-top: 100px;
-            padding: 30px;
-        }
-
-        .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid white;
-            transition: transform 0.3s;
-        }
-
-        .profile img:hover {
-            transform: scale(1.1);
-        }
-
-        .profile h1 {
-            margin: 10px 0;
-            font-size: 26px;
+            font-size: 24px;
+            margin: 60px 0 20px;
+            text-transform: uppercase;
             background: -webkit-linear-gradient(45deg, #ffeb3b, #ff4081);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .profile p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        /* Horizontal line */
-        hr {
-            border: 3px solid #ffeb3b;
-            border-radius: 5px;
-            width: 80%;
-            margin: 20px auto;
-        }
-
-        /* App List */
-        .app-list {
+        /* App Gallery */
+        .app-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -133,6 +99,7 @@
             text-align: center;
             width: 200px;
             transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
 
         .app-card:hover {
@@ -177,42 +144,70 @@
     <nav class="navbar">
         <div class="logo">Beacons</div>
         <div class="nav-links">
-            <a href="#profile">Profile</a>
-            <a href="#apps">Apps</a>
+            <a href="#home">Home</a>
+            <a href="#dns">DNS</a>
+            <a href="#certificate">Certificate</a>
+            <a href="#direct-install">Direct Install</a>
+            <a href="#signer-ipa">Signer IPA</a>
+            <a href="#jailbreak-app-source">Jailbreak App Source</a>
+            <a href="#jailbroken-app-source">Jailbroken App Source</a>
         </div>
         <div class="burger">☰</div>
     </nav>
 
-    <!-- Profile Section -->
-    <section id="profile" class="profile">
-        <img src="https://via.placeholder.com/100" alt="Profile Image">
-        <h1>John Doe</h1>
-        <p>Entrepreneur | Developer | Content Creator</p>
+    <!-- Sections -->
+    <section id="home">
+        <h1 class="section-title">Home</h1>
     </section>
 
-    <hr>
+    <section id="dns">
+        <h1 class="section-title">DNS</h1>
+    </section>
 
-    <!-- Apps Section -->
-    <section id="apps" class="app-list">
-        <div class="app-card">
-            <img src="https://via.placeholder.com/80" alt="App Image">
-            <h3>My App 1</h3>
-            <p>Awesome app description.</p>
-            <a href="#" class="download-btn">Download</a>
-        </div>
+    <section id="certificate">
+        <h1 class="section-title">Certificate</h1>
+    </section>
 
-        <div class="app-card">
-            <img src="https://via.placeholder.com/80" alt="App Image">
-            <h3>My App 2</h3>
-            <p>Another great app.</p>
-            <a href="#" class="download-btn">Download</a>
-        </div>
+    <section id="direct-install">
+        <h1 class="section-title">Direct Install</h1>
+    </section>
 
-        <div class="app-card">
-            <img src="https://via.placeholder.com/80" alt="App Image">
-            <h3>My App 3</h3>
-            <p>Get started today!</p>
-            <a href="#" class="download-btn">Download</a>
+    <section id="signer-ipa">
+        <h1 class="section-title">Signer IPA</h1>
+    </section>
+
+    <section id="jailbreak-app-source">
+        <h1 class="section-title">Jailbreak App Source</h1>
+    </section>
+
+    <section id="jailbroken-app-source">
+        <h1 class="section-title">Jailbroken App Source</h1>
+    </section>
+
+    <!-- App Gallery -->
+    <section id="app-gallery">
+        <h1 class="section-title">App Gallery</h1>
+        <div class="app-gallery">
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80" alt="App Image">
+                <h3>My App 1</h3>
+                <p>Awesome app description.</p>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80" alt="App Image">
+                <h3>My App 2</h3>
+                <p>Another great app.</p>
+                <a href="#" class="download-btn">Download</a>
+            </div>
+
+            <div class="app-card">
+                <img src="https://via.placeholder.com/80" alt="App Image">
+                <h3>My App 3</h3>
+                <p>Get started today!</p>
+                <a href="#" class="download-btn">Download</a>
+            </div>
         </div>
     </section>
 
