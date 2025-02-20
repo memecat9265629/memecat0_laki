@@ -3,118 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacons AI - App Gallery</title>
+    <title>Beacons AI Style Page</title>
     <style>
         /* General Styles */
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff7eb3, #8c52ff);
-            color: white;
             scroll-behavior: smooth;
         }
 
-        /* Navbar */
+        body {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff9190);
+            color: white;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        /* Navbar (Burger Menu) */
         .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
             z-index: 1000;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
+        .navbar h1 {
+            margin-left: 20px;
+            font-size: 22px;
         }
 
-        .nav-links a {
+        .menu-icon {
+            font-size: 28px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .menu a {
+            display: block;
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .nav-links a:hover {
-            color: #ffeb3b;
+        .menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Burger Menu */
-        .burger {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.8);
-                position: absolute;
-                top: 60px;
-                right: 10px;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .burger {
-                display: block;
-            }
-        }
-
-        /* Section Headers */
-        .section-title {
+        /* Profile Section */
+        .profile {
+            margin-top: 50px;
             text-align: center;
-            font-size: 24px;
-            margin: 60px 0 20px;
-            text-transform: uppercase;
-            background: -webkit-linear-gradient(45deg, #ffeb3b, #ff4081);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        /* App Gallery */
-        .app-gallery {
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 10px;
+        }
+
+        .profile h2 {
+            font-size: 24px;
+        }
+
+        .profile p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Horizontal Line */
+        hr {
+            width: 80%;
+            border: 2px solid white;
+            border-radius: 2px;
+            margin: 20px auto;
+            opacity: 0.5;
+        }
+
+        /* App List Gallery */
+        .app-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            padding: 20px;
+            margin-top: 20px;
         }
 
         .app-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             padding: 15px;
-            text-align: center;
-            width: 200px;
-            transition: transform 0.3s ease-in-out;
+            width: 250px;
+            margin: 10px;
+            transition: 0.3s ease-in-out;
             cursor: pointer;
         }
 
         .app-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .app-card img {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             border-radius: 10px;
+            margin-bottom: 10px;
         }
 
         .app-card h3 {
             font-size: 18px;
-            margin: 10px 0;
         }
 
         .app-card p {
@@ -122,111 +139,91 @@
             opacity: 0.8;
         }
 
-        .download-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            margin-top: 10px;
-            color: white;
-            background: #ffeb3b;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
+        /* Smooth Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .download-btn:hover {
-            background: #ff4081;
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Beacons</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#dns">DNS</a>
-            <a href="#certificate">Certificate</a>
-            <a href="#direct-install">Direct Install</a>
-            <a href="#signer-ipa">Signer IPA</a>
-            <a href="#jailbreak-app-source">Jailbreak App Source</a>
-            <a href="#jailbroken-app-source">Jailbroken App Source</a>
+    <!-- Navbar (Burger Menu) -->
+    <div class="navbar">
+        <h1>My Beacons Page</h1>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#profile">Profile</a>
+        <a href="#apps">Apps</a>
+    </div>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile fade-in">
+        <img src="https://via.placeholder.com/120" alt="Profile">
+        <h2>John Doe</h2>
+        <p>Digital Creator | Entrepreneur</p>
+    </section>
+
+    <hr>
+
+    <!-- App List Gallery -->
+    <section id="apps" class="app-list fade-in">
+        <div class="app-card" onclick="window.open('https://example.com', '_blank')">
+            <img src="https://via.placeholder.com/50" alt="App">
+            <h3>My Website</h3>
+            <p>Visit my personal website.</p>
         </div>
-        <div class="burger">☰</div>
-    </nav>
 
-    <!-- Sections -->
-    <section id="home">
-        <h1 class="section-title">Home</h1>
-    </section>
+        <div class="app-card" onclick="window.open('https://instagram.com', '_blank')">
+            <img src="https://via.placeholder.com/50" alt="App">
+            <h3>Instagram</h3>
+            <p>Follow me on Instagram.</p>
+        </div>
 
-    <section id="dns">
-        <h1 class="section-title">DNS</h1>
-    </section>
-
-    <section id="certificate">
-        <h1 class="section-title">Certificate</h1>
-    </section>
-
-    <section id="direct-install">
-        <h1 class="section-title">Direct Install</h1>
-    </section>
-
-    <section id="signer-ipa">
-        <h1 class="section-title">Signer IPA</h1>
-    </section>
-
-    <section id="jailbreak-app-source">
-        <h1 class="section-title">Jailbreak App Source</h1>
-    </section>
-
-    <section id="jailbroken-app-source">
-        <h1 class="section-title">Jailbroken App Source</h1>
-    </section>
-
-    <!-- App Gallery -->
-    <section id="app-gallery">
-        <h1 class="section-title">App Gallery</h1>
-        <div class="app-gallery">
-            <div class="app-card">
-                <img src="https://via.placeholder.com/80" alt="App Image">
-                <h3>My App 1</h3>
-                <p>Awesome app description.</p>
-                <a href="#" class="download-btn">Download</a>
-            </div>
-
-            <div class="app-card">
-                <img src="https://via.placeholder.com/80" alt="App Image">
-                <h3>My App 2</h3>
-                <p>Another great app.</p>
-                <a href="#" class="download-btn">Download</a>
-            </div>
-
-            <div class="app-card">
-                <img src="https://via.placeholder.com/80" alt="App Image">
-                <h3>My App 3</h3>
-                <p>Get started today!</p>
-                <a href="#" class="download-btn">Download</a>
-            </div>
+        <div class="app-card" onclick="window.open('https://twitter.com', '_blank')">
+            <img src="https://via.placeholder.com/50" alt="App">
+            <h3>Twitter</h3>
+            <p>Follow me on Twitter.</p>
         </div>
     </section>
 
     <script>
         // Burger Menu Toggle
-        document.querySelector('.burger').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        // Smooth Scroll Animation
+        document.addEventListener("scroll", function () {
+            let fadeElements = document.querySelectorAll(".fade-in");
+            fadeElements.forEach((el) => {
+                let rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add("visible");
+                }
+            });
         });
 
-        // Smooth Scroll for Menu Links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-
-                // Close burger menu on mobile
-                document.querySelector('.nav-links').classList.remove('active');
-            });
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            let menu = document.getElementById("menu");
+            let menuIcon = document.querySelector(".menu-icon");
+            if (!menu.contains(event.target) && event.target !== menuIcon) {
+                menu.style.display = "none";
+            }
         });
     </script>
 
